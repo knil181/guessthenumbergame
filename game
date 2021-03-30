@@ -1,0 +1,74 @@
+import java.util.Random;
+import java.util.Scanner;
+
+class guessTheNumberGame{
+
+    int noOfGuesses=0;
+    int userChoice;
+    int numb, limit;
+
+    public guessTheNumberGame() {
+        Random num = new Random();
+        numb = num.nextInt(200);
+    }
+
+    public void takeUserInput(){
+
+        System.out.println("Enter the number between 0 to 200 : "  );
+
+        Scanner sc= new Scanner(System.in);
+        userChoice=sc.nextInt();
+    }
+
+    public void isCorrectNumber(){
+        noOfGuesses=0;
+        while(true){
+
+
+
+            if(userChoice==numb){
+                System.out.println("congrats your guess is right!");
+                break;
+            }
+            else if(userChoice<numb){
+                System.out.println("your guess is smaller than the random number");
+                
+            }
+            
+            else{
+                System.out.println("your choice is greater than the random number");
+                
+
+            }
+
+            takeUserInput();
+            noOfGuesses++;
+
+
+        }
+
+
+    }
+    public void setLimit(int a){
+        limit=a;
+    }
+
+    public void getnoOfGuesses(){
+        System.out.println("you have guess this much time: " + noOfGuesses);
+
+
+    }
+
+}
+public class exercises3 {
+    public static void main(String[] args) {
+        guessTheNumberGame hmm= new guessTheNumberGame();
+
+        hmm.takeUserInput();
+        hmm.isCorrectNumber();
+        hmm.getnoOfGuesses();
+        hmm.setLimit(1);
+    }
+
+
+}
